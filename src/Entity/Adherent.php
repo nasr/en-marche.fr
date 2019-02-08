@@ -119,6 +119,13 @@ class Adherent implements UserInterface, UserEntityInterface, GeoPointInterface,
     private $gender;
 
     /**
+     * @ORM\Column(nullable=true)
+     *
+     * @JMS\Groups({"adherent_change_diff"})
+     */
+    private $customGender;
+
+    /**
      * @ORM\Column
      *
      * @JMS\Groups({"adherent_change_diff", "user_profile", "public"})
@@ -392,7 +399,8 @@ class Adherent implements UserInterface, UserEntityInterface, GeoPointInterface,
         string $registeredAt = 'now',
         ?array $tags = [],
         ?array $referentTags = [],
-        ?array $mandates = null
+        ?array $mandates = null,
+        ?string $customGender = null
     ) {
         $adherent = new self();
 
@@ -414,6 +422,7 @@ class Adherent implements UserInterface, UserEntityInterface, GeoPointInterface,
         $adherent->tags = new ArrayCollection($tags);
         $adherent->referentTags = new ArrayCollection($referentTags);
         $adherent->mandates = $mandates;
+        $adherent->customGender = $customGender;
 
         return $adherent;
     }
@@ -608,6 +617,11 @@ class Adherent implements UserInterface, UserEntityInterface, GeoPointInterface,
     public function getGender(): ?string
     {
         return $this->gender;
+    }
+
+    public function getCustomGender(): ?string
+    {
+        return $this->customGender;
     }
 
     public function isForeignResident(): bool

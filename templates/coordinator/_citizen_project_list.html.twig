@@ -7,7 +7,6 @@
             <th>{{ 'citizen_project.list.support_committees'|trans }}</th>
             <th>{{ 'citizen_project.list.place'|trans }}</th>
             <th>{{ 'citizen_project.about'|trans }}</th>
-            <th>{{ 'citizen_project.list.comment'|trans }}</th>
             <th>{{ 'citizen_project.list.status'|trans }}</th>
         </tr>
     </thead>
@@ -26,19 +25,6 @@
                     {{ project.subTitle }}
                     <br />
                     {{ 'citizen_project.created_at'|trans({'%date%': project.createdAt|date('d/m/Y'), '%time%':project.createdAt|date('H:i')}) }}
-                </td>
-                <td>
-                    {% if project.creator %}
-                        <a href="mailto:{{ project.creator.emailAddress }}" class="link--no-decor" title="{{ project.creator.emailAddress }}"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                        {{ project.creator }}
-                        <br/>
-                        {% if project.phone %}
-                            <br/>
-                            {{ project.phone|phone_number_format }}
-                        {% endif %}
-                    {% else %}
-                        ~
-                    {% endif %}
                 </td>
                 <td>{{ project.membersCount }}</td>
                 <td>
@@ -76,10 +62,7 @@
                                 {% endfor %}
                             </ul>
                         {% endfor %}
-                        {{ form_widget(form.coordinatorComment, {attr: {class: 'form__field--textarea-120'}}) }}
-                    {% else %}
-                        {{ project.coordinatorComment|escape|read_more(100, 'comment' ~ project.id, 'common.show_more'|trans, 'common.show_less'|trans) }}
-                    {% endif %}
+                   {% endif %}
                 </td>
                 <td>
                     {% if project.isPending %}
