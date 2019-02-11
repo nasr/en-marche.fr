@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 trait EntityTranslatableTrait
 {
-    use Translatable;
+    //use Translatable;
 
     /**
      * @var EntityTranslationInterface[]|Collection

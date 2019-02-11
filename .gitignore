@@ -1,5 +1,4 @@
-/app/config/parameters.yml
-/app/config/assets_version.yml
+/config/assets_version.yaml
 /app/data/images/
 /app/data/files/
 /app/data/user_documents/
@@ -9,9 +8,8 @@
 /build/
 /var/
 /vendor/
-/web/bundles/
-/web/built/
-/web/js/jquery.collection.js
+/public/built/
+/public/js/jquery.collection.js
 /.tmp
 /docker-compose.override.yml
 /gcloud-service-key.json
@@ -25,4 +23,18 @@
 /behat.yml
 /docker-dev.lock
 node_modules
-/web/apps/atelier-des-idees/src/App.css
+/public/apps/atelier-des-idees/src/App.css
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###

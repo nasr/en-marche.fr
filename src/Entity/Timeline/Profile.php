@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Profile implements AlgoliaIndexedEntityInterface
 {
-    use EntityTranslatableTrait;
+//    use EntityTranslatableTrait;
 
     /**
      * @var int

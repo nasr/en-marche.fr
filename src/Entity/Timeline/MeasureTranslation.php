@@ -20,7 +20,39 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class MeasureTranslation implements EntityTranslationInterface
 {
-    use Translation;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @ORM\Column(length=10)
+     */
+    protected $locale;
+    protected $translatable;
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function getTranslatable()
+    {
+        return $this->translatable;
+    }
+    public function setTranslatable($translatable)
+    {
+        $this->translatable = $translatable;
+        return $this;
+    }
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+    public function setLocale($locale)
+    {
+        $this->locale = $locale;
+        return $this;
+    }
 
     /**
      * @var string|null

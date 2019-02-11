@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Measure implements AlgoliaIndexedEntityInterface
 {
-    use EntityTranslatableTrait;
+    //use EntityTranslatableTrait;
 
     public const TITLE_MAX_LENGTH = 100;
 

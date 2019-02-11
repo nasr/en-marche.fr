@@ -7,11 +7,4 @@ use Sonata\AdminBundle\Controller\CRUDController as Controller;
 
 class AdminTimelineProfileController extends Controller
 {
-    /**
-     * @I18nDoctrine
-     */
-    public function listAction()
-    {
-        return parent::listAction();
-    }
 }

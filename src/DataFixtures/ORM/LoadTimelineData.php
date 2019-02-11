@@ -322,18 +322,18 @@ class LoadTimelineData extends AbstractFixture
         foreach (self::PROFILES as $reference => $metadatas) {
             $profil = new Profile();
 
-            $profil->addTranslation(new ProfileTranslation(
-                'fr',
-                $metadatas['title']['fr'],
-                $metadatas['slug']['fr'],
-                $metadatas['description']['fr']
-            ));
-            $profil->addTranslation(new ProfileTranslation(
-                'en',
-                $metadatas['title']['en'],
-                $metadatas['slug']['en'],
-                $metadatas['description']['en']
-            ));
+//            $profil->addTranslation(new ProfileTranslation(
+//                'fr',
+//                $metadatas['title']['fr'],
+//                $metadatas['slug']['fr'],
+//                $metadatas['description']['fr']
+//            ));
+//            $profil->addTranslation(new ProfileTranslation(
+//                'en',
+//                $metadatas['title']['en'],
+//                $metadatas['slug']['en'],
+//                $metadatas['description']['en']
+//            ));
 
             $this->addReference($reference, $profil);
 
@@ -343,18 +343,18 @@ class LoadTimelineData extends AbstractFixture
         foreach (self::THEMES as $reference => $metadatas) {
             $theme = new Theme($metadatas['featured'] ?? false);
 
-            $theme->addTranslation(new ThemeTranslation(
-                'fr',
-                $metadatas['title']['fr'],
-                $metadatas['slug']['fr'],
-                $metadatas['description']['fr']
-            ));
-            $theme->addTranslation(new ThemeTranslation(
-                'en',
-                $metadatas['title']['en'],
-                $metadatas['slug']['en'],
-                $metadatas['description']['en']
-            ));
+//            $theme->addTranslation(new ThemeTranslation(
+//                'fr',
+//                $metadatas['title']['fr'],
+//                $metadatas['slug']['fr'],
+//                $metadatas['description']['fr']
+//            ));
+//            $theme->addTranslation(new ThemeTranslation(
+//                'en',
+//                $metadatas['title']['en'],
+//                $metadatas['slug']['en'],
+//                $metadatas['description']['en']
+//            ));
 
             $this->addReference($reference, $theme);
 
@@ -376,8 +376,8 @@ class LoadTimelineData extends AbstractFixture
                 true
             );
 
-            $measure->addTranslation(new MeasureTranslation('fr', $metadatas['title']['fr']));
-            $measure->addTranslation(new MeasureTranslation('en', $metadatas['title']['en']));
+//            $measure->addTranslation(new MeasureTranslation('fr', $metadatas['title']['fr']));
+//            $measure->addTranslation(new MeasureTranslation('en', $metadatas['title']['en']));
             $manager->persist($measure);
         }
 

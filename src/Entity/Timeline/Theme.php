@@ -28,7 +28,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Theme implements EntityMediaInterface, AlgoliaIndexedEntityInterface
 {
     use EntityMediaTrait;
-    use EntityTranslatableTrait;
+    //use EntityTranslatableTrait;
 
     /**
      * @var int

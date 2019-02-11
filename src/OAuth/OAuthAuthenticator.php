@@ -9,6 +9,7 @@ use League\OAuth2\Server\Exception\OAuthServerException;
 use League\OAuth2\Server\ResourceServer;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory;
+use Symfony\Bridge\PsrHttpMessage\HttpMessageFactoryInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +28,7 @@ class OAuthAuthenticator extends AbstractGuardAuthenticator
 
     public function __construct(
         ResourceServer $resourceServer,
-        DiactorosFactory $diactorosFactory,
+        HttpMessageFactoryInterface $diactorosFactory,
         AdherentRepository $adherentRepository
     ) {
         $this->resourceServer = $resourceServer;
