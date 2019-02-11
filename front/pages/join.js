@@ -7,6 +7,8 @@ export default (formType) => {
     const form = dom('form[name="adherent_registration"]') || dom('form[name="become_adherent"]');
     const emailField = dom('#adherent_registration_emailAddress_first');
     const confirmEmailField = dom('#adherent_registration_emailAddress_second');
+    const genderField = dom('#adherent_registration_gender');
+    const customGenderField = dom('#adherent_registration_customGender');
     let zipCodeField = dom('#adherent_registration_address_postalCode');
     const captchaBlock = dom('div.g-recaptcha');
 
@@ -60,6 +62,20 @@ export default (formType) => {
     };
 
     /**
+     * Display/hide the custom gender field according if the gender field value is "other"
+     *
+     * @param event
+     */
+    const checkGender = (event) => {
+        if ('other' === genderField.value) {
+            removeClass(customGenderField.parentElement, 'visually-hidden');
+        } else {
+            addClass(customGenderField.parentElement, 'visually-hidden');
+            customGenderField.value = '';
+        }
+    };
+
+    /**
      * Display captcha block when the ZipCode is filled and remove the listener from ZipCode field
      *
      * @param event
@@ -77,6 +93,10 @@ export default (formType) => {
     if (emailField) {
         on(emailField, 'input', checkEmail);
         emailField.dispatchEvent(new Event('input'));
+    }
+
+    if (genderField) {
+        on(genderField, 'change', checkGender);
     }
 
     on(zipCodeField, 'input', displayCaptcha);

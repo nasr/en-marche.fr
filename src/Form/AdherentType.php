@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Form\DataTransformer\GenderTransformer;
 use AppBundle\Membership\Mandates;
 use AppBundle\Membership\MembershipRequest;
 use Symfony\Component\Form\AbstractType;
@@ -35,6 +36,7 @@ class AdherentType extends AbstractType
                 'placeholder' => 'common.i.am',
             ])
             ->add('gender', GenderType::class)
+            ->add('customGender', TextType::class)
             ->add('birthdate', BirthdayType::class, [
                 'widget' => 'choice',
                 'years' => $options['years'],
@@ -78,6 +80,8 @@ class AdherentType extends AbstractType
                 $event->setData($data);
             }
         });
+
+        $builder->addModelTransformer(new GenderTransformer());
     }
 
     public function configureOptions(OptionsResolver $resolver)
